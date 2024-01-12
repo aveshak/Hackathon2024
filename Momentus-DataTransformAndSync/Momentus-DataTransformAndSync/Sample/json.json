@@ -1,0 +1,80 @@
+{
+  "id": "1234",
+  "SyncConfigs": [
+    {
+      "InstanceId": "Event",
+      "Source": {
+        "DBType": "SQL",
+        "ConnectionString": "",
+        "Database": "UHG_Prod",
+        "Table": "EV123_Event"
+      },
+      "Destination": {
+        "DBType": "DataLake",
+        "ConnectionString": "",
+        "Database": "UHG",
+        "Table": "Event"
+      },
+      "FieldMappings": [
+        {
+          "Input": "EV123_EventId",
+          "Output": "EventId",
+          "DataType": "NVARCHAR",
+          "Size": "50",
+          "Process": "", //default (if not specified): Copy
+          "Params": {
+
+          }
+        },
+        {
+          "Input": "EV123_StartDate",
+          "Output": "StartDateTime",
+          "DataType": "DateTime",
+          "Process": "DateTime", //default (if not specified): Copy
+          "Params": {
+            "InputDateField": "EV123_StartDate",
+            "InputTimeField": "EV123_StartTime",
+            "Format": "yyyy-MM-dd HH:mm:ss"
+          }
+        }
+      ]
+    },
+    {
+      "InstanceId": "EventOpportunity",
+      "Source": {
+        "DBType": "SQL",
+        "ConnectionString": "",
+        "Database": "UHG_Prod",
+        "Table": "EV124_EventOpportunity"
+      },
+      "Destination": {
+        "DBType": "DataLake",
+        "ConnectionString": "",
+        "Database": "UHG",
+        "Table": "EventOpportunity"
+      },
+      "FieldMappings": [
+        {
+          "Input": "EV124_EventId",
+          "Output": "EventId",
+          "DataType": "NVARCHAR",
+          "Size": "50",
+          "Process": "", //default (if not specified): Copy
+          "Params": {
+
+          }
+        },
+        {
+          "Input": "EV123_StartDate",
+          "Output": "StartDateTime",
+          "DataType": "DateTime",
+          "Process": "DateTime", //default (if not specified): Copy
+          "Params": {
+            "InputFields": [ "EV123_StartDate", "EV123_StartTime" ],
+            "Format": "yyyy-MM-dd HH:mm:ss"
+          }
+        }
+      ]
+    }
+  ]
+}

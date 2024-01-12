@@ -1,0 +1,962 @@
+{
+  "id": "1234",
+  "SyncConfigs": [
+    {
+      "InstanceId": "Events",
+      "Source": {
+        "DBType": "SQL",
+        "ConnectionString": "",
+        "Database": "Ent_Sample",
+        "Table": "EV200_EVENT_MASTER"
+      },
+      "Destination": {
+        "DBType": "DataLake",
+        "ConnectionString": "Server=tcp:enterprisedatadazzlersdw.sql.azuresynapse.net,1433;Initial Catalog=hackathon2024dp;Persist Security Info=False;User ID=sqladminuser;Password=send2me@2024;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+        "Database": "hackathon2024dp",
+        "Table": "Events"
+      },
+      "FieldMappings": [
+        {
+          "Input": "EV200_EVT_ID",
+          "Output": "evt_srl_id",
+          "DataType": "Int",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV200_ORG_CODE",
+          "Output": "org_srl_id",
+          "DataType": "VARCHAR",
+          "Size": "2",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "(EV200_EVT_START_DATE + EV200_EVT_START_TIME)",
+          "Output": "evt_start_date",
+          "DataType": "DATETIME",
+          "Process": "DateTime",
+          "Params": {
+            "InputDateField": "EV200_EVT_START_DATE",
+            "InputTimeField": "EV200_EVT_START_TIME"
+          }
+        },
+        {
+          "Input": "(EV200_EVT_END_DATE + EV200_EVT_END_TIME)",
+          "Output": "evt_end_date",
+          "DataType": "DATETIME",
+          "Process": "DateTime",
+          "Params": {
+            "InputDateField": "EV200_EVT_END_DATE",
+            "InputTimeField": "EV200_EVT_END_TIME"
+          }
+        },
+        {
+          "Input": "EV200_EVT_DESC",
+          "Output": "evt_desc",
+          "DataType": "VARCHAR",
+          "Size": "150"
+        },
+
+        {
+          "Input": "evt_status_srl_id",
+          "Output": "evt_status_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "category_srl_id",
+          "Output": "category_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "class_srl_id",
+          "Output": "class_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "evt_type_srl_id",
+          "Output": "evt_type_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "evt_cust_number_srl_id",
+          "Output": "evt_cust_number_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "evt_bill_to_srl_id",
+          "Output": "evt_bill_to_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "evt_salesperson_srl_id",
+          "Output": "evt_salesperson_srl_id",
+          "DataType": "Int"
+        },
+
+
+
+
+
+
+
+        {
+          "Input": "EV200_EVT_DESIGNATION",
+          "Output": "evt_designation",
+          "DataType": "CHAR"
+        },
+        {
+          "Input": "EV200_EVT_CLASS",
+          "Output": "evt_class",
+          "DataType": "VARCHAR",
+          "Size": "5"
+        },
+        {
+          "Input": "EV200_EVT_CATEGORY",
+          "Output": "evt_category",
+          "DataType": "VARCHAR",
+          "Size": "5"
+        },
+        {
+          "Input": "EV200_EVT_STATUS",
+          "Output": "evt_status",
+          "DataType": "VARCHAR",
+          "Size": "2"
+        },
+        {
+          "Input": "EV200_EVT_LEGAL_NAME",
+          "Output": "evt_legal_name",
+          "DataType": "VARCHAR",
+          "Size": "255"
+        },
+        {
+          "Input": "(EV200_EVT_IN_DATE + EV200_EVT_IN_TIME)",
+          "Output": "evt_in_date",
+          "DataType": "DATETIME",
+          "Process": "DateTime",
+          "Params": {
+            "InputDateField": "EV200_EVT_IN_DATE",
+            "InputTimeField": "EV200_EVT_IN_TIME"
+          }
+        },
+        {
+          "Input": "(EV200_EVT_OUT_DATE + EV200_EVT_OUT_TIME)",
+          "Output": "evt_out_date",
+          "DataType": "DATETIME",
+          "Process": "DateTime",
+          "Params": {
+            "InputDateField": "EV200_EVT_OUT_DATE",
+            "InputTimeField": "EV200_EVT_OUT_TIME"
+          }
+        },
+        {
+          "Input": "EV200_COORD_1",
+          "Output": "evt_coordinator",
+          "DataType": "VARCHAR",
+          "Size": "8"
+        },
+        {
+          "Input": "EV200_SLSPER",
+          "Output": "evt_sales_person",
+          "DataType": "VARCHAR",
+          "Size": "8"
+        },
+        {
+          "Input": "EV200_BOOKED_BY",
+          "Output": "evt_entered_by",
+          "DataType": "VARCHAR",
+          "Size": "25"
+        },
+        {
+          "Input": "EV200_ENT_STAMP",
+          "Output": "evt_entered_on",
+          "DataType": "DATETIME"
+        },
+        {
+          "Input": "EV200_SENSITIVITY",
+          "Output": "evt_sensitivity",
+          "DataType": "VARCHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV200_EVT_NOTE_1",
+          "Output": "evt_note",
+          "DataType": "VARCHAR",
+          "Size": "150"
+        },
+        {
+          "Input": "EV200_ACT_COST",
+          "Output": "evt_actual_cost",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_EST_COST",
+          "Output": "evt_forecast_cost",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_EST_ATTEND",
+          "Output": "evt_forecast_attend",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_PLN_ATTEND",
+          "Output": "evt_ord_attend",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_ACT_ATTEND",
+          "Output": "evt_actual_attend",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_EVT_TYPE",
+          "Output": "evt_type",
+          "DataType": "VARCHAR",
+          "Size": "5"
+        },
+        {
+          "Input": "EV200_ON_SITE_OFFICE",
+          "Output": "evt_on_site_office",
+          "DataType": "VARCHAR",
+          "Size": "6"
+        },
+        {
+          "Input": "EV200_ON_SITE_PHONE",
+          "Output": "evt_on_site_phone",
+          "DataType": "VARCHAR",
+          "Size": "25"
+        },
+        {
+          "Input": "EV200_CUST_NBR",
+          "Output": "evt_cust_number",
+          "DataType": "VARCHAR",
+          "Size": "8"
+        },
+        {
+          "Input": "EV200_BILLTO_ACCT",
+          "Output": "evt_bill_to",
+          "DataType": "VARCHAR",
+          "Size": "8"
+        },
+        {
+          "Input": "EV200_WEB_ADDRESS",
+          "Output": "evt_web_address",
+          "DataType": "VARCHAR",
+          "Size": "255"
+        },
+        {
+          "Input": "EV200_MASTER_EVT",
+          "Output": "evt_parent_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_PREV_EVT",
+          "Output": "evt_previous_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_ACT_REVENUE",
+          "Output": "evt_actual_revenue",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_PLN_REVENUE",
+          "Output": "evt_ord_revenue",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_EST_REVENUE",
+          "Output": "evt_forecast_revenue",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV200_EVENT_DAYS",
+          "Output": "evt_days",
+          "DataType": "NUMERIC",
+          "Size": "(6,2)"
+        },
+        {
+          "Input": "",
+          "Output": "tenant_id",
+          "DataType": "Int",
+          "Process": "Fixed",
+          "Params": {
+            "Value": 1
+          }
+        }
+      ]
+    },
+    {
+      "InstanceId": "EventStatus",
+      "Source": {
+        "DBType": "SQL",
+        "ConnectionString": "",
+        "Database": "Ent_Sample",
+        "Table": "EV130_STATUS_MASTER"
+      },
+      "Destination": {
+        "DBType": "DataLake",
+        "ConnectionString": "Server=tcp:enterprisedatadazzlersdw.sql.azuresynapse.net,1433;Initial Catalog=hackathon2024dp;Persist Security Info=False;User ID=sqladminuser;Password=send2me@2024;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+        "Database": "hackathon2024dp",
+        "Table": "event_status"
+      },
+      "FieldMappings": [
+        {
+          "Input": "EV130_STATUS_CODE",
+          "Output": "evt_status_srl_id",
+          "DataType": "VARCHAR",
+          "Size": "2",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV130_STATUS_DESC",
+          "Output": "evt_status_description",
+          "DataType": "VARCHAR",
+          "Size": "40"
+        },
+        {
+          "Input": "EV130_EVT_FUNC_EFB",
+          "Output": "evt_status_event_scope",
+          "DataType": "CHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV130_JOB_FUNC_JFB",
+          "Output": "evt_status_job_scope",
+          "DataType": "CHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV130_USR_DEFN_STS",
+          "Output": "evt_status_abbreviated_code",
+          "DataType": "CHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV130_ABBR_STS_DESC",
+          "Output": "evt_status_abbreviated_description",
+          "DataType": "VARCHAR",
+          "Size": "5"
+        },
+        {
+          "Input": "EV130_MKT_CTL",
+          "Output": "evt_status_assignable_by_marketing",
+          "DataType": "CHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV130_STS_COLOR",
+          "Output": "evt_status_background_color",
+          "DataType": "INTEGER"
+        },
+        {
+          "Input": "EV130_TXT_COLOR",
+          "Output": "evt_status_text_color",
+          "DataType": "INTEGER"
+        },
+        {
+          "Input": "EV130_USR_STS_3",
+          "Output": "evt_status_status_group",
+          "DataType": "CHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV130_USR_STS_7",
+          "Output": "evt_status_pattern",
+          "DataType": "CHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV130_LOST_FLAG",
+          "Output": "evt_status_lost_flag",
+          "DataType": "VARCHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "",
+          "Output": "tenant_id",
+          "DataType": "Int",
+          "Process": "Fixed",
+          "Params": {
+            "Value": 1
+          }
+        }
+      ]
+    },
+    {
+      "InstanceId": "EventType",
+      "Source": {
+        "DBType": "SQL",
+        "ConnectionString": "",
+        "Database": "Ent_Sample",
+        "Table": "EV215_EVT_TYPE"
+      },
+      "Destination": {
+        "DBType": "DataLake",
+        "ConnectionString": "Server=tcp:enterprisedatadazzlersdw.sql.azuresynapse.net,1433;Initial Catalog=hackathon2024dp;Persist Security Info=False;User ID=sqladminuser;Password=send2me@2024;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+        "Database": "hackathon2024dp",
+        "Table": "event_type"
+      },
+      "FieldMappings": [
+        {
+          "Input": "",
+          "Output": "tenant_id",
+          "DataType": "Int",
+          "Process": "Fixed",
+          "Params": {
+            "Value": 1
+          }
+        },
+        {
+          "Input": "evt_type_srl_id",
+          "Output": "evt_type_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV215_EVT_TYPE",
+          "Output": "evt_type_code",
+          "DataType": "VARCHAR",
+          "Size": "5",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV215_ORG_CODE",
+          "Output": "org_srl_id",
+          "DataType": "VARCHAR",
+          "Size": "2",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV215_EVT_TYP_DESC",
+          "Output": "evt_type_description",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV215_SCOPE",
+          "Output": "evt_type_scope",
+          "DataType": "CHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV215_COLOR",
+          "Output": "evt_type_background_color",
+          "DataType": "INTEGER"
+        },
+        {
+          "Input": "EV215_SEQUENCE",
+          "Output": "evt_type_sequence",
+          "DataType": "VARCHAR",
+          "Size": "6"
+        },
+        {
+          "Input": "EV215_RETIRE",
+          "Output": "evt_type_retire",
+          "DataType": "VARCHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV215_ENT_STAMP",
+          "Output": "evt_type_entered_on",
+          "DataType": "DateTime"
+        },
+        {
+          "Input": "EV215_ENT_USER_ID",
+          "Output": "evt_type_entered_by_code",
+          "DataType": "VARCHAR",
+          "Size": "10"
+        },
+        {
+          "Input": "EV215_UPD_STAMP",
+          "Output": "evt_type_changed_on",
+          "DataType": "DateTime"
+        },
+        {
+          "Input": "EV215_UPD_USER_ID",
+          "Output": "evt_type_changed_by",
+          "DataType": "VARCHAR",
+          "Size": "10"
+        },
+        {
+          "Input": "EV215_EVT_TYP_DESC_ALT1",
+          "Output": "evt_type_altr_desc1",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV215_EVT_TYP_DESC_ALT2",
+          "Output": "evt_type_altr_desc2",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV215_EVT_TYP_DESC_ALT3",
+          "Output": "evt_type_altr_desc3",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV215_EVT_TYP_DESC_ALT4",
+          "Output": "evt_type_altr_desc4",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV215_EVT_TYP_DESC_ALT5",
+          "Output": "evt_type_altr_desc5",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        }
+      ]
+    },
+    {
+      "InstanceId": "Accounts",
+      "Source": {
+        "DBType": "SQL",
+        "ConnectionString": "",
+        "Database": "Ent_Sample",
+        "Table": "EV870_ACCT_MASTER"
+      },
+      "Destination": {
+        "DBType": "DataLake",
+        "ConnectionString": "Server=tcp:enterprisedatadazzlersdw.sql.azuresynapse.net,1433;Initial Catalog=hackathon2024dp;Persist Security Info=False;User ID=sqladminuser;Password=send2me@2024;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+        "Database": "hackathon2024dp",
+        "Table": "accounts"
+      },
+      "FieldMappings": [
+        {
+          "Input": "",
+          "Output": "tenant_id",
+          "DataType": "Int",
+          "Process": "Fixed",
+          "Params": {
+            "Value": 1
+          }
+        },
+        {
+          "Input": "EV870_UNIQUE_ID",
+          "Output": "acc_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV870_ACCT_CODE",
+          "Output": "acc_code",
+          "DataType": "VARCHAR",
+          "Size": "8",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV870_ORG_CODE",
+          "Output": "org_srl_id",
+          "DataType": "VARCHAR",
+          "Size": "2",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV870_MIDDLE_INITIAL",
+          "Output": "acc_middle_name",
+          "DataType": "VARCHAR",
+          "Size": "10"
+        },
+        {
+          "Input": "EV870_FIRST_NAME",
+          "Output": "acc_first_name",
+          "DataType": "VARCHAR",
+          "Size": "70"
+        },
+        {
+          "Input": "EV870_LAST_NAME",
+          "Output": "acc_last_name",
+          "DataType": "VARCHAR",
+          "Size": "70"
+        },
+        {
+          "Input": "EV870_NAME",
+          "Output": "acc_name",
+          "DataType": "VARCHAR",
+          "Size": "150"
+        },
+        {
+          "Input": "EV870_SALUTATION",
+          "Output": "acc_saluation",
+          "DataType": "VARCHAR",
+          "Size": "100"
+        },
+        {
+          "Input": "EV870_TITLE",
+          "Output": "acc_title",
+          "DataType": "VARCHAR",
+          "Size": "100"
+        },
+        {
+          "Input": "EV870_ADDRESS_L1",
+          "Output": "acc_address_l1",
+          "DataType": "VARCHAR",
+          "Size": "100"
+        },
+        {
+          "Input": "EV870_ADDRESS_L2",
+          "Output": "acc_address_l2",
+          "DataType": "VARCHAR",
+          "Size": "100"
+        },
+        {
+          "Input": "EV870_ADDRESS_L3",
+          "Output": "acc_address_l3",
+          "DataType": "VARCHAR",
+          "Size": "100"
+        },
+        {
+          "Input": "EV870_ADDRESS_L4",
+          "Output": "acc_address_l4",
+          "DataType": "VARCHAR",
+          "Size": "100"
+        },
+        {
+          "Input": "EV870_ADDRESS_L5",
+          "Output": "acc_address_l5",
+          "DataType": "VARCHAR",
+          "Size": "100"
+        },
+        {
+          "Input": "EV870_ADDRESS_L6",
+          "Output": "acc_address_l6",
+          "DataType": "VARCHAR",
+          "Size": "100"
+        },
+        {
+          "Input": "EV870_CITY",
+          "Output": "acc_city",
+          "DataType": "VARCHAR",
+          "Size": "50"
+        },
+        {
+          "Input": "EV870_STATE",
+          "Output": "acc_state",
+          "DataType": "VARCHAR",
+          "Size": "5"
+        },
+        {
+          "Input": "EV870_POSTAL_CODE",
+          "Output": "acc_postal_code",
+          "DataType": "VARCHAR",
+          "Size": "25"
+        },
+        {
+          "Input": "EV870_COUNTRY",
+          "Output": "acc_country",
+          "DataType": "VARCHAR",
+          "Size": "3"
+        },
+        {
+          "Input": "EV870_SALES_REGION",
+          "Output": "acc_region",
+          "DataType": "VARCHAR",
+          "Size": "4"
+        },
+        {
+          "Input": "EV870_KEYWORD_1",
+          "Output": "acc_keyword",
+          "DataType": "VARCHAR",
+          "Size": "20"
+        },
+        {
+          "Input": "EV870_MAIN_PHONE",
+          "Output": "acc_phone",
+          "DataType": "VARCHAR",
+          "Size": "150"
+        },
+        {
+          "Input": "EV870_MOBILE",
+          "Output": "acc_mobile",
+          "DataType": "VARCHAR",
+          "Size": "150"
+        },
+        {
+          "Input": "EV870_MAIN_FAX",
+          "Output": "acc_fax",
+          "DataType": "VARCHAR",
+          "Size": "150"
+        },
+        {
+          "Input": "EV870_EMAIL_ADDRESS",
+          "Output": "acc_email_address",
+          "DataType": "VARCHAR",
+          "Size": "150"
+        },
+        {
+          "Input": "EV870_WEB_ADDRESS",
+          "Output": "acc_website_address",
+          "DataType": "VARCHAR",
+          "Size": "150"
+        },
+        {
+          "Input": "EV870_PRIMARY_ACCT",
+          "Output": "acc_primary_account",
+          "DataType": "VARCHAR",
+          "Size": "8"
+        },
+        {
+          "Input": "EV870_ENTER_STAMP",
+          "Output": "acc_entered_on",
+          "DataType": "DATETIME"
+        },
+        {
+          "Input": "EV870_UPD_STAMP",
+          "Output": "acc_changed_on",
+          "DataType": "DATETIME"
+        }
+      ]
+    },
+    {
+      "InstanceId": "EventClass",
+      "Source": {
+        "DBType": "SQL",
+        "ConnectionString": "",
+        "Database": "Ent_Sample",
+        "Table": "EV210_EVT_CLASS"
+      },
+      "Destination": {
+        "DBType": "DataLake",
+        "ConnectionString": "Server=tcp:enterprisedatadazzlersdw.sql.azuresynapse.net,1433;Initial Catalog=hackathon2024dp;Persist Security Info=False;User ID=sqladminuser;Password=send2me@2024;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+        "Database": "hackathon2024dp",
+        "Table": "event_class"
+      },
+      "FieldMappings": [
+        {
+          "Input": "",
+          "Output": "tenant_id",
+          "DataType": "Int",
+          "Process": "Fixed",
+          "Params": {
+            "Value": 1
+          }
+        },
+        {
+          "Input": "class_srl_id",
+          "Output": "class_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV210_EVT_CLASS",
+          "Output": "class_srl_code",
+          "DataType": "VARCHAR",
+          "Size": "2",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV210_ORG_CODE",
+          "Output": "org_srl_id",
+          "DataType": "VARCHAR",
+          "Size": "2",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV210_EVT_CLS_DESC",
+          "Output": "class_desc",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV210_SCOPE",
+          "Output": "class_scope",
+          "DataType": "CHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV210_SEQUENCE",
+          "Output": "class_sequence",
+          "DataType": "VARCHAR",
+          "Size": "6"
+        },
+        {
+          "Input": "EV210_ENT_STAMP",
+          "Output": "class_entered_on",
+          "DataType": "DATETIME",
+          "Size": "0"
+        },
+        {
+          "Input": "EV210_ENT_USER_ID",
+          "Output": "class_entered_by",
+          "DataType": "VARCHAR",
+          "Size": "10"
+        },
+        {
+          "Input": "EV210_RETIRE",
+          "Output": "class_retire",
+          "DataType": "VARCHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV210_UPD_STAMP",
+          "Output": "class_changed_on",
+          "DataType": "DATETIME",
+          "Size": "0"
+        },
+        {
+          "Input": "EV210_UPD_USER_ID",
+          "Output": "class_changed_code",
+          "DataType": "VARCHAR",
+          "Size": "10"
+        },
+        {
+          "Input": "EV210_EVT_CLS_DESC_ALT1",
+          "Output": "class_desc_alt1",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV210_EVT_CLS_DESC_ALT2",
+          "Output": "class_desc_alt2",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV210_EVT_CLS_DESC_ALT3",
+          "Output": "class_desc_alt3",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV210_EVT_CLS_DESC_ALT4",
+          "Output": "class_desc_alt4",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV210_EVT_CLS_DESC_ALT5",
+          "Output": "class_desc_alt5",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        }
+      ]
+    },
+    {
+      "InstanceId": "EventCategory",
+      "Source": {
+        "DBType": "SQL",
+        "ConnectionString": "",
+        "Database": "Ent_Sample",
+        "Table": "EV205_EVT_CATEGORY"
+      },
+      "Destination": {
+        "DBType": "DataLake",
+        "ConnectionString": "Server=tcp:enterprisedatadazzlersdw.sql.azuresynapse.net,1433;Initial Catalog=hackathon2024dp;Persist Security Info=False;User ID=sqladminuser;Password=send2me@2024;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+        "Database": "hackathon2024dp",
+        "Table": "event_category"
+      },
+      "FieldMappings": [
+        {
+          "Input": "",
+          "Output": "tenant_id",
+          "DataType": "Int",
+          "Process": "Fixed",
+          "Params": {
+            "Value": 1
+          }
+        },
+        {
+          "Input": "category_srl_id",
+          "Output": "category_srl_id",
+          "DataType": "Int"
+        },
+        {
+          "Input": "EV205_EVT_CATEGORY",
+          "Output": "category_code",
+          "DataType": "VARCHAR",
+          "Size": "5",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV205_ORG_CODE",
+          "Output": "org_srl_id",
+          "DataType": "VARCHAR",
+          "Size": "2",
+          "PrimaryKey": true
+        },
+        {
+          "Input": "EV205_EVT_CAT_DESC",
+          "Output": "category_desc",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV205_SCOPE",
+          "Output": "category_scope",
+          "DataType": "CHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV205_SEQUENCE",
+          "Output": "category_sequence",
+          "DataType": "VARCHAR",
+          "Size": "6"
+        },
+        {
+          "Input": "EV205_ENT_STAMP",
+          "Output": "category_entered_on",
+          "DataType": "DATETIME",
+          "Size": "0"
+        },
+        {
+          "Input": "EV205_ENT_USER_ID",
+          "Output": "category_entered_by",
+          "DataType": "VARCHAR",
+          "Size": "10"
+        },
+        {
+          "Input": "EV205_RETIRE",
+          "Output": "category_retire",
+          "DataType": "VARCHAR",
+          "Size": "1"
+        },
+        {
+          "Input": "EV205_UPD_STAMP",
+          "Output": "category_changed_on",
+          "DataType": "DATETIME",
+          "Size": "0"
+        },
+        {
+          "Input": "EV205_UPD_USER_ID",
+          "Output": "category_changed_by",
+          "DataType": "VARCHAR",
+          "Size": "10"
+        },
+        {
+          "Input": "EV205_EVT_CAT_DESC_ALT1",
+          "Output": "category_desc_alt1",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV205_EVT_CAT_DESC_ALT2",
+          "Output": "category_desc_alt2",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV205_EVT_CAT_DESC_ALT3",
+          "Output": "category_desc_alt3",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV205_EVT_CAT_DESC_ALT4",
+          "Output": "category_desc_alt4",
+          "DataType": "VARCHAR",
+          "Size": "60"
+        },
+        {
+          "Input": "EV205_EVT_CAT_DESC_ALT5",
+          "Output": "category_desc_alt5",
+          "DataType": "VARCHAR",
+          "Size": "0"
+        }
+      ]
+    }
+  ],
+  "_rid": "AUlBALO9xLQBAAAAAAAAAA==",
+  "_self": "dbs/AUlBAA==/colls/AUlBALO9xLQ=/docs/AUlBALO9xLQBAAAAAAAAAA==/",
+  "_etag": "\"03003fba-0000-2000-0000-65a11e370000\"",
+  "_attachments": "attachments/",
+  "_ts": 1705057847
+}
