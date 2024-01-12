@@ -1,4 +1,7 @@
-﻿namespace EnterpriseODataApis.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EnterpriseODataApis.Models
 {
     [Serializable]
     [Table("Account")]
@@ -36,7 +39,7 @@
         [Column("acc_state")]
         public string? State { get; set; }
         [Column("acc_postal_code")]
-        public string? State { get; set; }
+        public string? PostalCode { get; set; }
         [Column("acc_country")]
         public string? Country { get; set; }
         [Column("acc_region")]

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amit\\Ungerboeck\\GITHUB\\Olethia\\Hackathon2024\\Hackathon2024\\EnterpriseODataApis\\EnterpriseODataApis.csproj": {}
+    "C:\\Users\\amit.dabre\\Desktop\\Momentus\\Github\\aveshak\\Hackathon2024\\EnterpriseODataApis\\EnterpriseODataApis.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amit\\Ungerboeck\\GITHUB\\Olethia\\Hackathon2024\\Hackathon2024\\EnterpriseODataApis\\EnterpriseODataApis.csproj": {
+    "C:\\Users\\amit.dabre\\Desktop\\Momentus\\Github\\aveshak\\Hackathon2024\\EnterpriseODataApis\\EnterpriseODataApis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amit\\Ungerboeck\\GITHUB\\Olethia\\Hackathon2024\\Hackathon2024\\EnterpriseODataApis\\EnterpriseODataApis.csproj",
+        "projectUniqueName": "C:\\Users\\amit.dabre\\Desktop\\Momentus\\Github\\aveshak\\Hackathon2024\\EnterpriseODataApis\\EnterpriseODataApis.csproj",
         "projectName": "EnterpriseODataApis",
-        "projectPath": "C:\\Users\\amit\\Ungerboeck\\GITHUB\\Olethia\\Hackathon2024\\Hackathon2024\\EnterpriseODataApis\\EnterpriseODataApis.csproj",
-        "packagesPath": "C:\\Users\\amit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amit\\Ungerboeck\\GITHUB\\Olethia\\Hackathon2024\\Hackathon2024\\EnterpriseODataApis\\obj\\",
+        "projectPath": "C:\\Users\\amit.dabre\\Desktop\\Momentus\\Github\\aveshak\\Hackathon2024\\EnterpriseODataApis\\EnterpriseODataApis.csproj",
+        "packagesPath": "C:\\Users\\amit.dabre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\amit.dabre\\Desktop\\Momentus\\Github\\aveshak\\Hackathon2024\\EnterpriseODataApis\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\amit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\amit.dabre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,9 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/EventBooking/index.json": {},
-          "https://tsemea-ungerboeck.pkgs.visualstudio.com/Interfaces/_packaging/EMEASolutionsAzure/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -54,13 +52,13 @@
               "target": "Package",
               "version": "[8.0.1, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
-            },
-            "Swashbuckle.OData": {
-              "target": "Package",
-              "version": "[3.5.0, )"
             }
           },
           "imports": [

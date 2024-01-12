@@ -3,12 +3,14 @@ using EnterpriseODataApis.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Routing.Attributes;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 
 namespace EnterpriseODataApis.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/v1/[controller]")]
+    [ODataRouteComponent("api/v1")]
     public class CompaniesController : ODataController
     {
         private readonly CompanyRepository _repository;
@@ -18,6 +20,7 @@ namespace EnterpriseODataApis.Controllers
         }
 
         [EnableQuery]
+        [HttpGet]
         public ActionResult<IEnumerable<Company>> Get()
         {
             IQueryable<Company> result = _repository.GetAll();
@@ -25,6 +28,7 @@ namespace EnterpriseODataApis.Controllers
         }
 
         [EnableQuery]
+        [HttpGet("{key}")]
         public ActionResult<Company> Get([FromRoute] int key)
         {
             return Ok(_repository.GetById(key));
