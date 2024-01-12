@@ -11,7 +11,7 @@ namespace EnterpriseODataApis.Models
         [Column("company_id")]
         public int Id { get; set; }
         [Column("org_srl_id")]
-        public string Organization { get; set; }
+        public string? Organization { get; set; }
         [Column("acc_first_name")]
         public string? FirstName { get; set; }
         [Column("acc_last_name")]

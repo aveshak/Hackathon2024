@@ -13,12 +13,12 @@ namespace EnterpriseODataApis.Repositories
 
         public IQueryable<EventCategory> GetAll()
         {
-            return _context.EventCategory.AsQueryable();
+            return _context.EventCategories.AsQueryable();
         }
 
         public IQueryable<EventCategory> GetById(int id)
         {
-            return _context.EventCategory
+            return _context.EventCategories
                 .AsQueryable()
                 .Where(ec => ec.Id == id);
         }

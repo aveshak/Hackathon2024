@@ -12,27 +12,27 @@ namespace EnterpriseODataApis.Models
         public int Id { get; set; }
 
         [Column("org_srl_id")]
-        public string Organization { get; set; }
+        public string? Organization { get; set; }
         [Column("evt_start_date")]
         public DateTime StartDate { get; set; }
         [Column("evt_end_date")]
         public DateTime EndDate { get; set; }
         [Column("evt_desc")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [Column("evt_designation")]
-        public string Designation { get; set; }
+        public string? Designation { get; set; }
         [Column("evt_class")]
-        public EventClasses Class { get; set; }
+        public EventClass? Class { get; set; }
         [Column("evt_category")]
-        public EventCategory Category { get; set; }
+        public EventCategory? Category { get; set; }
         [Column("evt_status")]
-        public EventStatus Status { get; set; }
+        public EventStatus? Status { get; set; }
         [Column("evt_legal_name")]
-        public string LegalName { get; set; }
+        public string? LegalName { get; set; }
         [Column("evt_in_date")]
-        public string InDate { get; set; }
+        public DateTime? InDate { get; set; }
         [Column("evt_out_date")]
-        public string OutDate { get; set; }
+        public string? OutDate { get; set; }
         [Column("evt_coordinator")]
         public Account Coordinator { get; set; }
         [Column("evt_sales_person")]

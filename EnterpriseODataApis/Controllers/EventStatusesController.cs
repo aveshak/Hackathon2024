@@ -1,7 +1,6 @@
 using EnterpriseODataApis.Models;
 using EnterpriseODataApis.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Attributes;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
@@ -13,8 +12,8 @@ namespace EnterpriseODataApis.Controllers
     [ODataRouteComponent("api/v1")]
     public class EventStatusesController : ODataController
     {
-        private readonly EventStatusesRepository _repository;
-        public EventStatusesController(EventStatusesRepository repository)
+        private readonly EventStatusRepository _repository;
+        public EventStatusesController(EventStatusRepository repository)
         {
             _repository = repository;
         }

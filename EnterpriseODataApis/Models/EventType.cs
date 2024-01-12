@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EnterpriseODataApis.Models
 {
     [Serializable]
-    [Table("EventType")]
+    [Table("event_type")]
     public class EventType
     {
         [Key]
@@ -13,7 +13,7 @@ namespace EnterpriseODataApis.Models
         [Column("tenant_id")]
         public int TenantId { get; set; }
         [Column("org_srl_id")]
-        public string OrganizationCode { get; set; }
+        public string? Organization { get; set; }
         [Column("evt_type_description")]
         public string? Description { get; set; }
         [Column("evt_type_scope")]

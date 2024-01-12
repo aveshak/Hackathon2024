@@ -6,19 +6,19 @@ namespace EnterpriseODataApis.Repositories
     public class EventTypeRepository
     {
         private readonly DataBaseContext _context;
-        public EventStatusRepository(DataBaseContext context)
+        public EventTypeRepository(DataBaseContext context)
         {
             _context = context;
         }
 
         public IQueryable<EventType> GetAll()
         {
-            return _context.EventType.AsQueryable();
+            return _context.EventTypes.AsQueryable();
         }
 
         public IQueryable<EventType> GetById(int id)
         {
-            return _context.EventType
+            return _context.EventTypes
                 .AsQueryable()
                 .Where(et => et.Id == id);
         }

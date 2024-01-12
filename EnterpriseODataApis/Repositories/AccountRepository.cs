@@ -13,12 +13,12 @@ namespace EnterpriseODataApis.Repositories
 
         public IQueryable<Account> GetAll()
         {
-            return _context.Account.AsQueryable();
+            return _context.Accounts.AsQueryable();
         }
 
         public IQueryable<Account> GetById(int id)
         {
-            return _context.Account
+            return _context.Accounts
                 .AsQueryable()
                 .Where(a => a.Id == id);
         }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EnterpriseODataApis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfe526d76ac09c6236ad0702294084d1319fc978")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnterpriseODataApis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EnterpriseODataApis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
