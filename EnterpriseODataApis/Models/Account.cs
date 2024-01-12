@@ -4,12 +4,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EnterpriseODataApis.Models
 {
     [Serializable]
-    [Table("Account")]
+    [Table("accounts")]
     public class Account
     {
         [Key]
-        [Column("company_id")]
-        public int Id { get; set; }
+        [Column("acc_srl_id")]
+        public long? Id { get; set; }
+
+        [Column("acc_code")]
+        public string? Code { get; set; }
+        
+        [Column("tenant_id")]
+        public int? TenantId { get; set; }
         [Column("org_srl_id")]
         public string? Organization { get; set; }
         [Column("acc_first_name")]
@@ -44,8 +50,6 @@ namespace EnterpriseODataApis.Models
         public string? Country { get; set; }
         [Column("acc_region")]
         public string? Region { get; set; }
-        [Column("acc_keyword")]
-        public string? Keyword { get; set; }
         [Column("acc_phone")]
         public string? Phone { get; set; }
         [Column("acc_mobile")]
@@ -62,5 +66,6 @@ namespace EnterpriseODataApis.Models
         public DateTime? EnteredOn { get; set; }
         [Column("acc_changed_on")]
         public DateTime? ChangedOn { get; set; }
+
     }
 }

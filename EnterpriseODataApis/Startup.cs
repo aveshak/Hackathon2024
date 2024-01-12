@@ -33,12 +33,10 @@ namespace EnterpriseODataApis
             
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Enterprise Apis V1", Version = "v1" });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "Enterprise Apis V2", Version = "v2" });
             });
             AddFormatters(services);
 
-            services.AddScoped<CompanyRepository, CompanyRepository>();
-            services.AddScoped<ProductRepository, ProductRepository>();
             services.AddScoped<EventRepository, EventRepository>();
             services.AddScoped<EventStatusRepository, EventStatusRepository>();
             services.AddScoped<AccountRepository, AccountRepository>();
@@ -59,15 +57,19 @@ namespace EnterpriseODataApis
 
             app.UseSwagger();
             app.UseSwaggerUI(c => {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Enterprise APIs V1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "Enterprise APIs V2");
             });
         }
 
         private IEdmModel GetEdmModel()
         {
             ODataConventionModelBuilder modelBuilder = new();
-            modelBuilder.EntitySet<Company>("Companies");
-            modelBuilder.EntitySet<Product>("Products");
+            modelBuilder.EntitySet<Account>("Accounts");
+            modelBuilder.EntitySet<Event>("Events");
+            modelBuilder.EntitySet<Event>("EventCategories");
+            modelBuilder.EntitySet<Event>("EventClasses");
+            modelBuilder.EntitySet<Event>("EventStatuses");
+            modelBuilder.EntitySet<Event>("EventTypes");
 
             return modelBuilder.GetEdmModel();
         }

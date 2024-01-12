@@ -4,82 +4,86 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EnterpriseODataApis.Models
 {
     [Serializable]
-    [Table("Event")]
+    [Table("Events")]
     public class Event
     {
         [Key]
         [Column("evt_srl_id")]
-        public int Id { get; set; }
-
+        public long Id { get; set; }
+        [Column("tenant_id")]
+        public int? TenantId { get; set; }
+        
         [Column("org_srl_id")]
         public string? Organization { get; set; }
         [Column("evt_start_date")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         [Column("evt_end_date")]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         [Column("evt_desc")]
         public string? Description { get; set; }
         [Column("evt_designation")]
         public string? Designation { get; set; }
-        [Column("evt_class")]
-        public EventClass? Class { get; set; }
-        [Column("evt_category")]
+
+        [ForeignKey("evt_class_srl_id")]
+        public EventClass? EventClass { get; set; }
+
+        [ForeignKey("evt_category_srl_id")]
         public EventCategory? Category { get; set; }
-        [Column("evt_status")]
+        [ForeignKey("evt_status_srl_id")]
         public EventStatus? Status { get; set; }
         [Column("evt_legal_name")]
         public string? LegalName { get; set; }
         [Column("evt_in_date")]
         public DateTime? InDate { get; set; }
         [Column("evt_out_date")]
-        public string? OutDate { get; set; }
-        [Column("evt_coordinator")]
-        public Account Coordinator { get; set; }
-        [Column("evt_sales_person")]
-        public Account Salesperson { get; set; }
+        public DateTime? OutDate { get; set; }
+        [ForeignKey("evt_coordinator_srl_id")]
+        public Account? Coordinator { get; set; }
+
+        [ForeignKey("evt_salesperson_srl_id")]
+        public Account? Salesperson { get; set; }
         [Column("evt_entered_by")]
-        public string EnteredBy { get; set; }
+        public string? EnteredBy { get; set; }
         [Column("evt_entered_on")]
         public DateTime EnteredOn { get; set; }
         [Column("evt_sensitivity")]
-        public string Sensitivity { get; set; }
+        public string? Sensitivity { get; set; }
         //todo: object
         [Column("evt_note")]
-        public string Note { get; set; }
-        [Column("evt_actual_cost")]
-        public int ActualCost { get; set; }
-        [Column("evt_forecast_attend")]
-        public int ForecastAttendance { get; set; }
-        [Column("ForecastCost")]
-        public int evt_forecast_cost { get; set; }
-        [Column("evt_ord_attend")]
-        public int OrderedAttendance { get; set; }
-        [Column("evt_actual_attend")]
-        public int ActualAttendance { get; set; }
-
-        [Column("evt_type")]
-        public EventType EventType { get; set; }
+        public string? Note { get; set; }
+        //[Column("evt_actual_cost")]
+        //public long? ActualCost { get; set; }
+        //[Column("evt_forecast_attend")]
+        //public long? ForecastAttendance { get; set; }
+        //[Column("evt_forecast_cost")]
+        //public long? ForecastCost { get; set; }
+        //[Column("evt_ord_attend")]
+        //public long? OrderedAttendance { get; set; }
+        //[Column("evt_actual_attend")]
+        //public long? ActualAttendance { get; set; }
+        [ForeignKey("evt_type_srl_id")]
+        public EventType? EventType { get; set; }
         [Column("evt_on_site_office")]
-        public string OnSiteOffice { get; set; }
+        public string? OnSiteOffice { get; set; }
         [Column("evt_on_site_phone")]
-        public string OnSitePhone { get; set; }
-        [Column("evt_cust_number")]
-        public Account Customer { get; set; }
-        [Column("evt_bill_to")]
-        public Account BillTo { get; set; }
+        public string? OnSitePhone { get; set; }
+        [ForeignKey("evt_cust_number_srl_id")]
+        public Account? Customer { get; set; }
+        [ForeignKey("evt_bill_to_srl_id")]
+        public Account? BillTo { get; set; }
         [Column("evt_web_address")]
-        public string WebAddress { get; set; }
-        //[Column("evt_parent_srl_id")]
-        //public Event ParentEvent { get; set; }
-        //[Column("evt_previous_srl_id")]
-        //public Event PreviousEvent { get; set; }
-        [Column("evt_actual_revenue")]
-        public int ActualRevenue { get; set; }
-        [Column("evt_ord_revenue")]
-        public int OrderedRevenue { get; set; }
-        [Column("evt_forecast_revenue")]
-        public int ForecastRevenue { get; set; }
-        [Column("evt_days")]
-        public int EventDays { get; set; }
+        public string? WebAddress { get; set; }
+        [Column("evt_parent_srl_id")]
+        public long? ParentEvent { get; set; }
+        [Column("evt_previous_srl_id")]
+        public long? PreviousEvent { get; set; }
+        //[Column("evt_actual_revenue")]
+        //public long? ActualRevenue { get; set; }
+        //[Column("evt_ord_revenue")]
+        //public long? OrderedRevenue { get; set; }
+        //[Column("evt_forecast_revenue")]
+        //public long? ForecastRevenue { get; set; }
+        //[Column("evt_days")]
+        //public decimal? EventDays { get; set; }
     }
 }

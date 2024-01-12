@@ -9,12 +9,15 @@ namespace EnterpriseODataApis.Models
     {
         [Key]
         [Column("evt_type_srl_id")]
-        public int Id { get; set; }
+        public long? Id { get; set; }
         [Column("tenant_id")]
-        public int TenantId { get; set; }
+        public int? TenantId { get; set; }
         [Column("org_srl_id")]
         public string? Organization { get; set; }
+
+        
         [Column("evt_type_code")]
+        
         public string? Code { get; set; }
         [Column("evt_type_description")]
         public string? Description { get; set; }
@@ -24,5 +27,7 @@ namespace EnterpriseODataApis.Models
         public int? BackgroundColor { get; set; }
         [Column("evt_type_sequence")]
         public string? Sequence { get; set; }
+
+        public List<Event>? Events { get; set; }
     }
 }

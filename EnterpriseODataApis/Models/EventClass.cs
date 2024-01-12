@@ -9,20 +9,22 @@ namespace EnterpriseODataApis.Models
     {
         [Key]
         [Column("class_srl_id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
         [Column("tenant_id")]
-        public int TenantId { get; set; }
+        public int? TenantId { get; set; }
         [Column("class_srl_code")]
-        public int Code { get; set; }
+        public string? Code { get; set; }
         [Column("org_srl_id")]
-        public string? OrganizationCode { get; set; }
+        public string? Organization { get; set; }
         [Column("class_desc")]
         public string? Description { get; set; }
         [Column("class_scope")]
-        public int? Scope { get; set; }
+        public string? Scope { get; set; }
         [Column("class_sequence")]
         public string? Sequence { get; set; }
         [Column("class_retire")]
         public string? Retire { get; set; }
+
+        public List<Event>? Events { get; set; }
     }
 }

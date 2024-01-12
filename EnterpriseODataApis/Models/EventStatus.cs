@@ -9,9 +9,11 @@ namespace EnterpriseODataApis.Models
     {
         [Key]
         [Column("evt_status_srl_id")]
-        public int Id { get; set; }
+        public long? Id { get; set; }
         [Column("tenant_id")]
-        public int TenantId { get; set; }
+        public int? TenantId { get; set; }
+        
+        
         [Column("evt_status_code")]
         public string? Code { get; set; }
         [Column("evt_status_description")]
@@ -29,6 +31,8 @@ namespace EnterpriseODataApis.Models
         [Column("evt_status_background_color")]
         public int? BackgroundColor { get; set; }
         [Column("evt_status_text_color")]
-        public int TextColor { get; set; }
+        public int? TextColor { get; set; }
+
+        public List<Event>? Events { get; set; }
     }
 }

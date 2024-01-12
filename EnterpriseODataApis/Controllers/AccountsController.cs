@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.OData.Routing.Controllers;
 namespace EnterpriseODataApis.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller]")]
-    [ODataRouteComponent("api/v1")]
+    [Route("api/v2/[controller]")]
+    [ODataRouteComponent("api/v2")]
     public class AccountsController : ODataController
     {
         private readonly AccountRepository _repository;
