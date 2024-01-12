@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EnterpriseODataApis.Models
 {
     [Serializable]
-    [Table("EventClass")]
+    [Table("event_class")]
     public class EventClass
     {
         [Key]
