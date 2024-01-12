@@ -22,25 +22,7 @@ namespace EnterpriseODataApis.Models
         public int? Scope { get; set; }
         [Column("category_sequence")]
         public string? Sequence { get; set; }
-        [Column("category_entered_on")]
-        public DateTime? EnteredOn { get; set; }
-        [Column("category_entered_by")]
-        public int? EnteredByCode { get; set; }
         [Column("category_retire")]
         public string? Retire { get; set; }
-        [Column("category_changed_on")]
-        public DateTime? ChangedOn { get; set; }
-        [Column("category_changed_by")]
-        public string? ChangedByCode { get; set; }
-        [Column("category_desc_alt1")]
-        public string? AlternateDescription1 { get; set; }
-        [Column("category_desc_alt2")]
-        public string? AlternateDescription2 { get; set; }
-        [Column("category_desc_alt3")]
-        public string? AlternateDescription3 { get; set; }
-        [Column("category_desc_alt4")]
-        public string? AlternateDescription4 { get; set; }
-        [Column("category_desc_alt5")]
-        public string? AlternateDescription5 { get; set; }
     }
 }
