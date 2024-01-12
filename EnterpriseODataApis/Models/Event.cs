@@ -70,7 +70,7 @@ namespace EnterpriseODataApis.Models
         [Column("evt_cust_number")]
         public Account Customer { get; set; }
         [Column("evt_bill_to")]
-        public string BillTo { get; set; }
+        public Account BillTo { get; set; }
         [Column("evt_web_address")]
         public string WebAddress { get; set; }
         [Column("evt_parent_srl_id")]
