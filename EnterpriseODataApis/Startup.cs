@@ -39,6 +39,12 @@ namespace EnterpriseODataApis
 
             services.AddScoped<CompanyRepository, CompanyRepository>();
             services.AddScoped<ProductRepository, ProductRepository>();
+            services.AddScoped<EventRepository, EventRepository>();
+            services.AddScoped<EventStatusRepository, EventStatusRepository>();
+            services.AddScoped<AccountRepository, AccountRepository>();
+            services.AddScoped<EventCategoryRepository, EventCategoryRepository>();
+            services.AddScoped<EventClassRepository, EventClassRepository>();
+            services.AddScoped<EventTypeRepository, EventTypeRepository>();
         }
 
         public void Configure(IApplicationBuilder app)

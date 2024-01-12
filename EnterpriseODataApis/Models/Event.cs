@@ -69,10 +69,10 @@ namespace EnterpriseODataApis.Models
         public Account BillTo { get; set; }
         [Column("evt_web_address")]
         public string WebAddress { get; set; }
-        [Column("evt_parent_srl_id")]
-        public Event ParentEvent { get; set; }
-        [Column("evt_previous_srl_id")]
-        public Event PreviousEvent { get; set; }
+        //[Column("evt_parent_srl_id")]
+        //public Event ParentEvent { get; set; }
+        //[Column("evt_previous_srl_id")]
+        //public Event PreviousEvent { get; set; }
         [Column("evt_actual_revenue")]
         public int ActualRevenue { get; set; }
         [Column("evt_ord_revenue")]
