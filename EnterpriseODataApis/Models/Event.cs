@@ -21,22 +21,18 @@ namespace EnterpriseODataApis.Models
         public string Description { get; set; }
         [Column("evt_designation")]
         public string Designation { get; set; }
-        //todo: object
         [Column("evt_class")]
-        public string Class { get; set; }
-        //todo: object
+        public EventClasses Class { get; set; }
         [Column("evt_category")]
-        public string Category { get; set; }
-        //todo: object
+        public EventCategory Category { get; set; }
         [Column("evt_status")]
-        public string Status { get; set; }
+        public EventStatus Status { get; set; }
         [Column("evt_legal_name")]
         public string LegalName { get; set; }
         [Column("evt_in_date")]
         public string InDate { get; set; }
         [Column("evt_out_date")]
         public string OutDate { get; set; }
-        //todo: object
         [Column("evt_coordinator")]
         public Account Coordinator { get; set; }
         [Column("evt_sales_person")]
@@ -62,7 +58,7 @@ namespace EnterpriseODataApis.Models
         public int ActualAttendance { get; set; }
 
         [Column("evt_type")]
-        public string EventType { get; set; }
+        public EventType EventType { get; set; }
         [Column("evt_on_site_office")]
         public string OnSiteOffice { get; set; }
         [Column("evt_on_site_phone")]
