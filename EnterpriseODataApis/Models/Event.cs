@@ -1,7 +1,7 @@
 ﻿namespace EnterpriseODataApis.Models
 {
     [Serializable]
-    [Table("Account")]
+    [Table("Event")]
     public class Event
     {
         [Key]
@@ -35,9 +35,9 @@
         public string OutDate { get; set; }
         //todo: object
         [Column("evt_coordinator")]
-        public string Coordinator { get; set; }
+        public Account Coordinator { get; set; }
         [Column("evt_sales_person")]
-        public string Salesperson { get; set; }
+        public Account Salesperson { get; set; }
         [Column("evt_entered_by")]
         public string EnteredBy { get; set; }
         [Column("evt_entered_on")]
@@ -65,16 +65,15 @@
         [Column("evt_on_site_phone")]
         public string OnSitePhone { get; set; }
         [Column("evt_cust_number")]
-        //todo: object
-        public Customer Customer { get; set; }
+        public Account Customer { get; set; }
         [Column("evt_bill_to")]
         public string BillTo { get; set; }
         [Column("evt_web_address")]
         public string WebAddress { get; set; }
         [Column("evt_parent_srl_id")]
-        public int ParentEvent { get; set; }
+        public Event ParentEvent { get; set; }
         [Column("evt_previous_srl_id")]
-        public int PreviousEvent { get; set; }
+        public Event PreviousEvent { get; set; }
         [Column("evt_actual_revenue")]
         public int ActualRevenue { get; set; }
         [Column("evt_ord_revenue")]
